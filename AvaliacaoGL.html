@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<title>Avaliação GL</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<style>
+*{
+padding:0px;
+margin:0px;
+}
+button{
+border-radius:55px;
+border:none;
+background-color:white;
+color:none;
+}
+
+button:hover{
+}
+body{
+background: radial-gradient(#aec5da 15%, transparent 16%), linear-gradient(45deg, transparent 49%, #aec5da 49% 51%, transparent 51%), linear-gradient(-45deg, transparent 49%, #aec5da 49% 51%, transparent 51%);
+        background-size: 5em 5em;
+        background-color: #ffffff;
+        opacity: 1}
+		
+#containerPrincipal{
+opacity:1;
+	display:flex;
+	flex-direction:column;
+	justify-content: center;
+	align-items: center;
+	margin-top:5%;
+	
+}
+.logo{
+width:50%;
+border-radius:25px;
+box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;}
+
+
+#emotes{
+margin:3%;
+width:80%;
+height:20vh;
+display:flex;
+flex-direction:row;
+justify-content: center;
+align-items: center;
+background-color:white;
+padding:5%;
+gap:10%;
+box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+border-radius:25px;
+
+}
+.emote{
+width:120%;
+}
+
+.emote:hover{
+width:130%;
+}
+
+</style>
+</head>
+<body>
+	<div id="containerPrincipal">
+		<img class="logo" src="https://github.com/ThiagoPScc/Avalia-o-GL/blob/main/emotes/logoGL.PNG?raw=true">
+		<div id="emotes">
+			<button id="bravo" onclick="somarDados(1)"><img class="emote" src="https://github.com/ThiagoPScc/Avalia-o-GL/blob/main/emotes/bravo.png?raw=true"></button>
+			<button id="irritado" onclick="somarDados(2)"><img class="emote" src="https://github.com/ThiagoPScc/Avalia-o-GL/blob/main/emotes/irritado.png?raw=true"></button>
+			<button id="normal" onclick="somarDados(3)"><img class="emote" src="https://github.com/ThiagoPScc/Avalia-o-GL/blob/main/emotes/normal.png?raw=true"></button>
+			<button id="satisfeito" onclick="somarDados(4)"><img class="emote" src="https://github.com/ThiagoPScc/Avalia-o-GL/blob/main/emotes/satisfeito.png?raw=true"></button>
+			<button id="feliz" onclick="somarDados(5)"><img class="emote" src="https://github.com/ThiagoPScc/Avalia-o-GL/blob/main/emotes/feliz.png?raw=true"></button>
+		</div>
+		
+	</div>
+<body>
+<script>
+
+</script>
