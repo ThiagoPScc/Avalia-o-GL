@@ -80,6 +80,22 @@ margin-top: 20%;
 background-color: #4f4791;
 color: #ffffff;
 width: 100px;
+padding:1%;
+border-radius:5px;
+}
+
+#resetar{
+background-color: #D64933;
+color: #ffffff;
+width: 100px;
+padding:1%;
+border-radius:5px;
+margin-left:50%;
+}
+
+h3{
+font-family: sans-serif;
+
 }
 
 </style>
@@ -87,6 +103,7 @@ width: 100px;
 <body>
 	<div id="containerPrincipal">
 		<img class="logo" src="https://github.com/ThiagoPScc/Avalia-o-GL/blob/main/emotes/logoGL.PNG?raw=true">
+		<h3>Avalie nosso desempenho</h3>
 		<div id="emotes">
 			<button id="bravo" onclick="somarDados(1)"><img class="emote" src="https://github.com/ThiagoPScc/Avalia-o-GL/blob/main/emotes/bravo.png?raw=true"></button>
 			<button id="irritado" onclick="somarDados(2)"><img class="emote" src="https://github.com/ThiagoPScc/Avalia-o-GL/blob/main/emotes/irritado.png?raw=true"></button>
@@ -99,6 +116,8 @@ width: 100px;
 		
 	</div>
 	<button id="finalizar" onclick="finalizarVoto()">Finalizar Votação</button>
+	
+	<button id="resetar" onclick="resetarVoto()">Resetar Votação</button>
 
 </body>
 <script>
@@ -164,6 +183,10 @@ width: 100px;
 	// Libera o objeto da memória
 	URL.revokeObjectURL(link.href);
 
+	}
+	
+	function resetarVoto(){
+	ruim = 0, insatisfeito = 0, normal = 0, satisfeito = 0, otimo = 0;
 	}
 
 </script>
