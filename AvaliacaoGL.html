@@ -16,8 +16,7 @@ background-color:white;
 color:none;
 }
 
-button:hover{
-}
+
 body{
 background: radial-gradient(#aec5da 15%, transparent 16%), linear-gradient(45deg, transparent 49%, #aec5da 49% 51%, transparent 51%), linear-gradient(-45deg, transparent 49%, #aec5da 49% 51%, transparent 51%);
         background-size: 5em 5em;
@@ -61,6 +60,27 @@ width:120%;
 .emote:hover{
 width:130%;
 }
+#mensagemVoto {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    color: #000;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0,0,0,0.3);
+    font-size: 1.2em;
+    font-weight: bold;
+    z-index: 1000;
+    transition: opacity 0.5s ease;
+}
+#finalizar{
+margin-top: 20%;
+background-color: #4f4791;
+color: #ffffff;
+width: 100px;
+}
 
 </style>
 </head>
@@ -74,9 +94,76 @@ width:130%;
 			<button id="satisfeito" onclick="somarDados(4)"><img class="emote" src="https://github.com/ThiagoPScc/Avalia-o-GL/blob/main/emotes/satisfeito.png?raw=true"></button>
 			<button id="feliz" onclick="somarDados(5)"><img class="emote" src="https://github.com/ThiagoPScc/Avalia-o-GL/blob/main/emotes/feliz.png?raw=true"></button>
 		</div>
+		<div id="mensagemVoto" style="display:none;">Obrigado por votar!</div>
+	
 		
 	</div>
-<body>
+	<button id="finalizar" onclick="finalizarVoto()">Finalizar Votação</button>
+
+</body>
 <script>
+	let ruim = 0, insatisfeito = 0, normal = 0, satisfeito = 0, otimo = 0;
+
+
+	function somarDados(val){
+		switch (val){
+			case 1:
+				ruim += 1;	
+				terminarVoto();
+				break;
+			case 2:
+				insatisfeito += 1;
+				terminarVoto();
+				break;
+			case 3:
+				normal += 1;
+				terminarVoto();
+				break;
+			case 4:
+				satisfeito += 1;
+				terminarVoto();
+				break;
+			case 5:
+				otimo += 1		
+				terminarVoto();
+				break;
+			}
+	}
+
+	function terminarVoto(){
+		const msg = document.getElementById("mensagemVoto");
+	msg.style.display = "block";
+	msg.style.opacity = "1";
+
+	setTimeout(() => {
+		msg.style.opacity = "0";
+		setTimeout(() => {
+			msg.style.display = "none";
+		}, 500); // espera a transição de opacidade
+	}, 1000); // mostra por 2 segundos
+	}
+
+	function finalizarVoto(){
+		const resultado = 
+`Resultado da votação:
+- Ruim: ${ruim}
+- Insatisfeito: ${insatisfeito}
+- Normal: ${normal}
+- Satisfeito: ${satisfeito}
+- Ótimo: ${otimo}`;
+
+	// Cria o blob com o conteúdo
+	const blob = new Blob([resultado], { type: 'text/plain' });
+
+	// Cria um link temporário pra download
+	const link = document.createElement("a");
+	link.href = URL.createObjectURL(blob);
+	link.download = "resultado_votacao.txt";
+	link.click();
+
+	// Libera o objeto da memória
+	URL.revokeObjectURL(link.href);
+
+	}
 
 </script>
