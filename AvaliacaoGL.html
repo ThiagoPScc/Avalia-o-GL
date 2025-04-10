@@ -75,22 +75,28 @@ width:130%;
     z-index: 1000;
     transition: opacity 0.5s ease;
 }
+
+#botaoContainer {
+    display: flex;
+    justify-content: space-between; 
+    width: 100%; 
+    margin-top: 20%; 
+}
+
 #finalizar{
-margin-top: 20%;
-background-color: #4f4791;
-color: #ffffff;
-width: 100px;
-padding:1%;
-border-radius:5px;
+    background-color: #4f4791;
+    color: #ffffff;
+    width: 100px;
+    padding: 1%;
+    border-radius: 5px;
 }
 
 #resetar{
-background-color: #D64933;
-color: #ffffff;
-width: 100px;
-padding:1%;
-border-radius:5px;
-margin-left:50%;
+    background-color: #D64933;
+    color: #ffffff;
+    width: 100px;
+    padding: 1%;
+    border-radius: 5px;
 }
 
 h3{
@@ -102,22 +108,24 @@ font-family: sans-serif;
 </head>
 <body>
 	<div id="containerPrincipal">
-		<img class="logo" src="https://github.com/ThiagoPScc/Avalia-o-GL/blob/main/emotes/logoGL.PNG?raw=true">
+		<img class="logo" src="https://raw.githubusercontent.com/ThiagoPScc/Avalia-o-GL/main/emotes/logoGL.PNG">
 		<h3>Avalie nosso desempenho</h3>
 		<div id="emotes">
-			<button id="bravo" onclick="somarDados(1)"><img class="emote" src="https://github.com/ThiagoPScc/Avalia-o-GL/blob/main/emotes/bravo.png?raw=true"></button>
-			<button id="irritado" onclick="somarDados(2)"><img class="emote" src="https://github.com/ThiagoPScc/Avalia-o-GL/blob/main/emotes/irritado.png?raw=true"></button>
-			<button id="normal" onclick="somarDados(3)"><img class="emote" src="https://github.com/ThiagoPScc/Avalia-o-GL/blob/main/emotes/normal.png?raw=true"></button>
-			<button id="satisfeito" onclick="somarDados(4)"><img class="emote" src="https://github.com/ThiagoPScc/Avalia-o-GL/blob/main/emotes/satisfeito.png?raw=true"></button>
-			<button id="feliz" onclick="somarDados(5)"><img class="emote" src="https://github.com/ThiagoPScc/Avalia-o-GL/blob/main/emotes/feliz.png?raw=true"></button>
+			<button id="bravo" onclick="somarDados(1)"><img class="emote" src="https://raw.githubusercontent.com/ThiagoPScc/Avalia-o-GL/main/emotes/bravo.png"></button>
+			<button id="irritado" onclick="somarDados(2)"><img class="emote" src="https://raw.githubusercontent.com/ThiagoPScc/Avalia-o-GL/main/emotes/irritado.png"></button>
+			<button id="normal" onclick="somarDados(3)"><img class="emote" src="https://raw.githubusercontent.com/ThiagoPScc/Avalia-o-GL/main/emotes/normal.png"></button>
+			<button id="satisfeito" onclick="somarDados(4)"><img class="emote" src="https://raw.githubusercontent.com/ThiagoPScc/Avalia-o-GL/main/emotes/satisfeito.png"></button>
+			<button id="feliz" onclick="somarDados(5)"><img class="emote" src="https://raw.githubusercontent.com/ThiagoPScc/Avalia-o-GL/main/emotes/feliz.png"></button>
 		</div>
 		<div id="mensagemVoto" style="display:none;">Obrigado por votar!</div>
 	
 		
 	</div>
-	<button id="finalizar" onclick="finalizarVoto()">Finalizar Votação</button>
-	
-	<button id="resetar" onclick="resetarVoto()">Resetar Votação</button>
+
+	<div id="botaoContainer">
+		<button id="finalizar" onclick="finalizarVoto()">Finalizar Votação</button>
+		<button id="resetar" onclick="resetarVoto()">Resetar Votação</button>
+	</div>
 
 </body>
 <script>
@@ -158,8 +166,8 @@ font-family: sans-serif;
 		msg.style.opacity = "0";
 		setTimeout(() => {
 			msg.style.display = "none";
-		}, 500); // espera a transição de opacidade
-	}, 1000); // mostra por 2 segundos
+		}, 300); // 
+	}, 2000); // 
 	}
 
 	function finalizarVoto(){
@@ -171,16 +179,17 @@ font-family: sans-serif;
 - Satisfeito: ${satisfeito}
 - Ótimo: ${otimo}`;
 
-	// Cria o blob com o conteúdo
+
+	
 	const blob = new Blob([resultado], { type: 'text/plain' });
 
-	// Cria um link temporário pra download
+
 	const link = document.createElement("a");
 	link.href = URL.createObjectURL(blob);
 	link.download = "resultado_votacao.txt";
 	link.click();
 
-	// Libera o objeto da memória
+	
 	URL.revokeObjectURL(link.href);
 
 	}
@@ -190,3 +199,5 @@ font-family: sans-serif;
 	}
 
 </script>
+
+</html>
